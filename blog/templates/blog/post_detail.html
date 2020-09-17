@@ -7,8 +7,9 @@
                 {{ post.published_date }}
             </div>
         {% endif %}
-
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
+    <a style="float: right" href="{% url 'post_edit' pk=post.pk %}"><i class="fa fa-pencil-square-o fa-lg" style="color: midnightblue"></i></a>
+
     </div>
 {% endblock %}
