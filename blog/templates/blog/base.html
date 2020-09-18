@@ -16,9 +16,12 @@
 <body>
 
 <div class="page-header">
-    {% if user.is_authenticated %}
-        <a href="{% url 'post_new' %}" class="top-menu" style="float: right"><button class="btn btn-light btn-sm">New Blog</button></a>
-    {% endif %}
+    <div class="top-menu">
+        {% if user.is_authenticated %}
+            <a href="{% url 'post_draft_list' %}" style="float: right"><button class="btn btn-light btn-sm">Edit Draft</button></a>
+            <a href="{% url 'post_new' %}" style="float: right"><button class="btn btn-light btn-sm mr-1">New Blog</button></a>
+        {% endif %}
+    </div>
     <h1><a href="{% url "post_list" %}">Word of Truth Blog</a></h1>
 </div>
 

@@ -2,17 +2,24 @@
 
 {% block content %}
     <div class="post">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+
         {% if post.published_date %}
             <div class="date">
                 {{ post.published_date }}
             </div>
+
+        {% else %}
+            <a href="{% url 'post_publish' pk=post.pk %}" style="align-content: flex-end"
+                class="btn btn-primary btn-sm">Publish</a>
         {% endif %}
 
-        <h1>{{ post.title }}</h1>
-        <p>{{ post.text|linebreaksbr }}</p>
+
 
         {% if user.is_authenticated %}
-            <a style="float: right" href="{% url 'post_edit' pk=post.pk %}"><i class="fa fa-pencil-square-o fa-lg" style="color: midnightblue"></i></a>
+            <a href="{% url 'post_edit' pk=post.pk %}"><i class="fa fa-pencil-square-o fa-lg"
+                style="color: midnightblue"></i></a>
         {% endif %}
 
     </div>
