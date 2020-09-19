@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@1&display=swap" rel="stylesheet"
           type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/87e00e27c0.css">
 
 </head>
@@ -19,20 +19,29 @@
 <div class="page-header">
     <div class="top-menu">
         {% if user.is_authenticated %}
-            <a href="{% url 'post_draft_list' %}" style="float: right; padding-left: 5px">
-                <button class="btn btn-light btn-sm">Edit Draft</button></a>
-            <a href="{% url 'post_new' %}" style="float: right">
-                <button class="btn btn-light btn-sm mr-1">New Blog</button></a>
+{#            <a href="{% url 'post_draft_list' %}" style="float: right; padding-left: 5px">#}
+{#                <button class="btn btn-light btn-sm">Edit Draft</button></a>#}
+{#            <a href="{% url 'post_new' %}" style="float: right">#}
+{#                <button class="btn btn-light btn-sm mr-1">New Blog</button></a>#}
 
-            <p style="position: absolute; top: 65px; right: 50px; size: 16px; color: white">
-                Hello, {{ user.username }} <small>(<a href="{% url 'logout' %}">Logout</a>)</small></p>
+{#            <p style="margin-right: -10px; padding-top: 45px; right: 50px; font-size: medium; color: white">#}
+{#                            Hello, {{ user.username }} <small>(<a href="{% url 'logout' %}">Logout</a>)</small></p>#}
+
+            <a href="{% url 'post_draft_list' %}"><button type="button" class="btn btn-outline-light btn-sm">Edit Draft</button></a>
+            <a href="{% url 'post_new' %}"><button type="button" class="btn btn-outline-light btn-sm mr-1">New Blog</button></a>
+            <p class="greeting"> Hello, {{ user.username }} <small><a href="{% url 'logout' %}">Logout</a></small></p>
+
 
         {% else %}
-            <a href="{% url 'login' %}" style="float: right">
-                <button class="btn btn-outline-light btn-sm" role="button">Login</button></a>
+{#            <a href="{% url 'login' %}" style="float: right">#}
+{#                <button class="btn btn-outline-light btn-sm" role="button">Login</button></a>#}
+            <a href="{% url 'login' %}"><button class="btn btn-outline-light btn-sm" role="button">Login</button></a>
+
         {% endif %}
     </div>
-    <h1 style="margin-left: -10px; margin-top: 0"><a href="{% url "post_list" %}">Word of Truth Blog</a></h1>
+{#    <h1 style="margin-left: -10px; margin-top: 0"><a href="{% url "post_list" %}">Word of Truth Blog</a></h1>#}
+    <h1><a href="{% url "post_list" %}">Word of Truth Blog</a></h1>
+
 </div>
 
 <div class="content container">
