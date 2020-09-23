@@ -1,16 +1,20 @@
 {% extends 'blog/base.html' %}
+{# Commented code are errors that don't work like in the videos. #}
 
 {% block title %}Larry's Blog{% endblock %}
 
 {% block content %}
     {% for post in posts %}
         <div class="post">
+
             <div class="date">
                 <p>Published: {{ post.published_date }}</p>
              </div>
 
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|truncatechars:30|linebreaksbr }}</p>
+
+            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
         </div>
     {% endfor %}
 {% endblock %}

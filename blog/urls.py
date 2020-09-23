@@ -18,6 +18,9 @@ urlpatterns = [
     # mydjangosite.com/post/edit online
     path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
 
+    # 127.0.0.1:8000/post/delete local
+    # mydjangosite.com/post/delete online
+    path('post/<int:pk>/delete/', views.post_delete, name='post_delete'),
 
     # 127.0.0.1:8000/drafts local
     # mydjangosite.com/drafts online
@@ -34,6 +37,14 @@ urlpatterns = [
     # 127.0.0.1:8000/post/2/remove local
     # mydjangosite.com/post/2/remove online
     path('comment/<int:pk>/remove/', views.comment_remove, name='comment_remove'),
+
+    # 127.0.0.1:8000/post/2/approve local
+    # mydjangosite.com/post/2/approve online
+    path('comment/<int:pk>/approve/', views.comment_approve, name='comment_approve'),
+
+    # 127.0.0.1:8000/signup local
+    # mydjangosite.com/signup online
+    path('signup/', views.signup, name='signup'),
 
 ]
 
